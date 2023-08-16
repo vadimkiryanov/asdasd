@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 
 export const Template = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -6,5 +6,5 @@ export const Template = ({ children }: { children: React.ReactNode }) => {
       {children}
       <div className="bg-[url(https://framerusercontent.com/images/rR6HYXBrMmX4cRpXfXUOvpvpB0.png)] absolute inset-0 opacity-[0.02] bg z-0 bg-[length:161px] bg-repeat" />
     </div>
-  )
-}
+  );
+};
