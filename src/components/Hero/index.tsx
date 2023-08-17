@@ -1,28 +1,34 @@
-import Image from "next/image";
-import React from "react";
-import avatar from "../../assets/image/avatar.png";
+"use client"
+
+import Image from "next/image"
+import React from "react"
+import avatar from "../../assets/image/avatar.png"
 
 export const Hero = () => {
+  const [isCopied, setIsCopied] = React.useState(false)
+  const [typeElem, setTypeElem] = React.useState<"telegram" | "email" | null>(null)
+
+  const emailHandlerClick = (text: string, elemType: "telegram" | "email") => {
+    copyToClipboard(text)
+    setIsCopied(true)
+    setTypeElem(elemType)
+
+    setTimeout(() => {
+      setIsCopied(false)
+      setTypeElem(null)
+    }, 3000)
+  }
+
   return (
     <div className="z-10 w-full shadow-xl card bg-base-200">
       <figure className="z-20 px-10 pt-10">
-        <Image
-          width={90}
-          height={90}
-          src={avatar}
-          alt="Avatar"
-          className="rounded-xl"
-        />
+        <Image width={90} height={90} src={avatar} alt="Avatar" className="rounded-xl" />
       </figure>
       <div className="z-20 flex flex-col items-center pb-10 text-center">
         <h4 className="mt-3 text-sm font-light">@vadosjs</h4>
         <h2 className="z-20 text-3xl font-bold text-white">Vados Jenkins</h2>
         <div className="z-20 grid grid-flow-col mt-3">
-          <a
-            href="https://github.com/vadimkiryanov"
-            target="_blank"
-            className="btn"
-          >
+          <a href="https://github.com/vadimkiryanov" target="_blank" className="btn">
             <svg
               height="24"
               aria-hidden="true"
@@ -36,43 +42,42 @@ export const Hero = () => {
             </svg>
           </a>
           <a className="btn">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              className="fill-orange-500"
-            >
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" className="fill-orange-500">
               <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path>
             </svg>
           </a>
-          {/*  <a className="btn">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              className="fill-orange-500"
-            >
-              <path d="m20.665 3.717-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701h-.002l.002.001-.314 4.692c.46 0 .663-.211.921-.46l2.211-2.15 4.599 3.397c.848.467 1.457.227 1.668-.785l3.019-14.228c.309-1.239-.473-1.8-1.282-1.434z"></path>
-            </svg>
-          </a> */}
-          <a href="https://19vadik99@gmail.com" target="_blank" className="btn">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="#f97316"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <circle cx="12" cy="12" r="4"></circle>
-              <path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94"></path>
-            </svg>
-          </a>
+          <div
+            className={` tooltip-bottom ${isCopied && typeElem === "telegram" ? "tooltip tooltip-open" : ""}`}
+            data-tip="URL is copied :)"
+          >
+            <a onClick={() => emailHandlerClick("@vadosjs", "telegram")} className="btn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" className="fill-orange-500">
+                <path d="m20.665 3.717-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701h-.002l.002.001-.314 4.692c.46 0 .663-.211.921-.46l2.211-2.15 4.599 3.397c.848.467 1.457.227 1.668-.785l3.019-14.228c.309-1.239-.473-1.8-1.282-1.434z"></path>
+              </svg>
+            </a>
+          </div>
+          {/* Tooltip */}
+          <div
+            className={` tooltip-right ${isCopied && typeElem === "email" ? "tooltip tooltip-open" : ""}`}
+            data-tip="URL is copied :)"
+          >
+            <button onClick={() => emailHandlerClick("19vadik99@gmail.com", "email")} className="btn">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#f97316"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <circle cx="12" cy="12" r="4"></circle>
+                <path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94"></path>
+              </svg>
+            </button>
+          </div>
         </div>
         <p className="mt-3 text-gray-500 max-w-[300px]">
           {`Hi, I'm Vados Jenkins, a Web Developer who loves to craft visually stunning websites.`}
@@ -80,5 +85,22 @@ export const Hero = () => {
       </div>
       <div className="bg-[url(https://framerusercontent.com/images/rR6HYXBrMmX4cRpXfXUOvpvpB0.png)] absolute inset-0 opacity-[0.02] bg z-0 bg-[length:161px] bg-repeat" />
     </div>
-  );
-};
+  )
+}
+
+function copyToClipboard(text: string) {
+  // Создаем временный элемент textarea
+  const textarea = document.createElement("textarea")
+  textarea.value = text
+  document.body.appendChild(textarea)
+
+  // Выделяем текст в textarea
+  textarea.select()
+  textarea.setSelectionRange(0, textarea.value.length)
+
+  // Копируем текст в буфер обмена
+  document.execCommand("copy")
+
+  // Удаляем временный элемент textarea
+  document.body.removeChild(textarea)
+}
