@@ -58,7 +58,7 @@ export const Hero = () => {
           </div>
           {/* Tooltip */}
           <div
-            className={` tooltip-right ${isCopied && typeElem === "email" ? "tooltip tooltip-open" : ""}`}
+            className={` tooltip-bottom ${isCopied && typeElem === "email" ? "tooltip tooltip-open" : ""}`}
             data-tip="URL is copied :)"
           >
             <button onClick={() => emailHandlerClick("19vadik99@gmail.com", "email")} className="btn">
