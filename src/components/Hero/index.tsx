@@ -22,6 +22,7 @@ export const Hero = () => {
   return (
     <>
       <div className="card z-10 w-full bg-base-200 shadow-xl">
+      
         {/* Изображение аватара */}
         <figure className="z-20 px-10 pt-10">
           <Image width={90} height={90} src={avatar} alt="Avatar" className="rounded-xl" />

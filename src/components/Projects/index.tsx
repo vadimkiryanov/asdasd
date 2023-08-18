@@ -3,10 +3,12 @@ import projectSalt from "../../assets/image/project-salt.png";
 import projectPizza from "../../assets/image/project-pizza.png";
 import projectNotab from "../../assets/image/project-notab.png";
 import Image, { StaticImageData } from "next/image";
+import dog from "../../assets/gif/dog.gif";
 
 export const Projects = () => {
   return (
-    <div className="card z-10 w-full  bg-base-200 p-10 shadow-xl">
+    <div className="card z-10 w-full  overflow-hidden bg-base-200 p-10 shadow-xl">
+      <Image src={dog} alt="Dog" className="absolute -right-11 -top-6  scale-[.65] brightness-[80%]" />
       <h2 className="z-20 text-2xl font-bold  text-orange-500">Projects</h2>
       <div className="z-20 mt-6 flex flex-col gap-4">
         <ProjectItem img={projectSalt} title="Salt" description="A simple project." link="https://vadimkiryanov.github.io/Salt-page/" />
