@@ -1,59 +1,44 @@
-import React, { FC } from "react"
-import projectSalt from "../../assets/image/project-salt.png"
-import projectPizza from "../../assets/image/project-pizza.png"
-import projectNotab from "../../assets/image/project-notab.png"
-import Image, { StaticImageData } from "next/image"
+import React, { FC } from "react";
+import projectSalt from "../../assets/image/project-salt.png";
+import projectPizza from "../../assets/image/project-pizza.png";
+import projectNotab from "../../assets/image/project-notab.png";
+import Image, { StaticImageData } from "next/image";
 
 export const Projects = () => {
   return (
-    <div className="card bg-base-200  shadow-xl  z-10 w-full p-10">
-      <h2 className="text-2xl text-orange-500 font-bold  z-20">Projects</h2>
-      <div className="flex flex-col gap-4 z-20 mt-6">
-        <ProjectItem
-          img={projectSalt}
-          title="Salt"
-          description="A simple project."
-          link="https://vadimkiryanov.github.io/Salt-page/"
-        />
-        <ProjectItem
-          img={projectPizza}
-          title="Pizza"
-          description="A simple project."
-          link="https://react-market-ashen.vercel.app/"
-        />
-        <ProjectItem
-          img={projectNotab}
-          title="Notab"
-          description="A simple project."
-          link="https://vadimkiryanov.github.io/NoTab-Page/"
-        />
+    <div className="card z-10 w-full  bg-base-200 p-10 shadow-xl">
+      <h2 className="z-20 text-2xl font-bold  text-orange-500">Projects</h2>
+      <div className="z-20 mt-6 flex flex-col gap-4">
+        <ProjectItem img={projectSalt} title="Salt" description="A simple project." link="https://vadimkiryanov.github.io/Salt-page/" />
+        <ProjectItem img={projectPizza} title="Pizza" description="A simple project." link="https://react-market-ashen.vercel.app/" />
+        <ProjectItem img={projectNotab} title="Notab" description="A simple project." link="https://vadimkiryanov.github.io/NoTab-Page/" />
       </div>
-      <hr className="mt-6 opacity-20 bg-base-100" />
-      <div className="flex flex-wrap gap-4 mt-6 z-20 ">
-        <span className="badge p-4 rounded-lg bg-base-100 text-lg ">Web Developer</span>
-        <span className="badge p-4 rounded-lg bg-base-100 text-lg">UI Desginer</span>
-        <span className="badge p-4 rounded-lg bg-base-100  text-lg">UX Desginer</span>
+      <hr className="mt-6 bg-base-100 opacity-20" />
+      <div className="z-20 mt-6 flex flex-wrap gap-4 ">
+        <span className="badge rounded-lg bg-base-100 p-4 text-lg ">Web Developer</span>
+        <span className="badge rounded-lg bg-base-100 p-4 text-lg">UI Desginer</span>
+        <span className="badge rounded-lg bg-base-100 p-4  text-lg">UX Desginer</span>
       </div>
 
-      <div className="bg-[url(https://framerusercontent.com/images/rR6HYXBrMmX4cRpXfXUOvpvpB0.png)] absolute inset-0 opacity-[0.02] bg z-0 bg-[length:161px] bg-repeat" />
+      <div className="bg absolute inset-0 z-0 bg-[url(https://framerusercontent.com/images/rR6HYXBrMmX4cRpXfXUOvpvpB0.png)] bg-[length:161px] bg-repeat opacity-[0.02]" />
     </div>
-  )
-}
+  );
+};
 
 type TProjectItem = {
-  img: StaticImageData
-  title: string
-  description: string
-  link: string
-}
+  img: StaticImageData;
+  title: string;
+  description: string;
+  link: string;
+};
 const ProjectItem: FC<TProjectItem> = ({ img, description, title, link }) => {
   return (
-    <a href={link} target="_blank" className="alert group shadow-lg bg-base-100 cursor-pointer">
+    <a href={link} target="_blank" className="group alert cursor-pointer bg-base-100 shadow-lg">
       <div className="z-20 overflow-hidden rounded-md ">
-        <Image width={90} height={90} alt="Movie" src={img} className="drop-shadow-md group-hover:scale-110 transition-all duration-700" />
+        <Image width={90} height={90} alt="Movie" src={img} className="drop-shadow-md transition-all duration-700 group-hover:scale-110" />
       </div>
       <div>
-        <h3 className="font-bold text-xl text-white">{title}</h3>
+        <h3 className="text-xl font-bold text-white">{title}</h3>
         <div className="text-base">{description}</div>
       </div>
       <button className="btn btn-sm">
@@ -66,11 +51,11 @@ const ProjectItem: FC<TProjectItem> = ({ img, description, title, link }) => {
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
-          className="group-hover:stroke-orange-500 stroke-white transition-all"
+          className="stroke-white transition-all group-hover:stroke-orange-500"
         >
           <path d="M9 18l6-6-6-6" />
         </svg>
       </button>
     </a>
-  )
-}
+  );
+};

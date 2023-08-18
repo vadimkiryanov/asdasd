@@ -1,10 +1,10 @@
-import React from "react"
+import React from "react";
 
 export const Footer = () => {
   return (
-    <footer className="card bg-base-200 rounded-b-none shadow-xl  z-10 w-full p-10">
-      <h4 className="text-2xl text-orange-500 text-center z-20">VJ</h4>
-      <div className="navbar-center  flex justify-center z-20">
+    <footer className="card z-10 w-full rounded-b-none bg-base-200 p-10 shadow-xl">
+      <h4 className="z-20 text-center text-2xl text-orange-500">VJ</h4>
+      <div className="navbar-center  z-20 flex justify-center">
         <ul className="menu menu-horizontal px-1">
           <li>
             <a>Home</a>
@@ -17,10 +17,10 @@ export const Footer = () => {
           </li>
         </ul>
       </div>
-      <hr className="opacity-10 bg-base-100" />
-      <span className="text-center mt-4 text-sm">Copyright © Vados Jenkins</span>
+      <hr className="bg-base-100 opacity-10" />
+      <span className="mt-4 text-center text-sm">Copyright © Vados Jenkins</span>
 
-      <div className="bg-[url(https://framerusercontent.com/images/rR6HYXBrMmX4cRpXfXUOvpvpB0.png)] absolute inset-0 opacity-[0.02] bg z-0 bg-[length:161px] bg-repeat" />
+      <div className="bg absolute inset-0 z-0 bg-[url(https://framerusercontent.com/images/rR6HYXBrMmX4cRpXfXUOvpvpB0.png)] bg-[length:161px] bg-repeat opacity-[0.02]" />
     </footer>
-  )
-}
+  );
+};

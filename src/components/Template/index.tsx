@@ -2,9 +2,9 @@ import React from "react";
 
 export const Template = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="card bg-base-200   shadow-xl z-10 w-full">
+    <div className="card z-10 w-full bg-base-200 shadow-xl">
       {children}
-      <div className="bg-[url(https://framerusercontent.com/images/rR6HYXBrMmX4cRpXfXUOvpvpB0.png)] absolute inset-0 opacity-[0.02] bg z-0 bg-[length:161px] bg-repeat" />
+      <div className="bg absolute inset-0 z-0 bg-[url(https://framerusercontent.com/images/rR6HYXBrMmX4cRpXfXUOvpvpB0.png)] bg-[length:161px] bg-repeat opacity-[0.02]" />
     </div>
   );
 };
